@@ -38,6 +38,7 @@ app.use(
       directives: {
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
+        "connectSrc": ["'self'", 'https://app-production-de6f.up.railway.app'],
       },
     },
     frameguard: {
