@@ -60,32 +60,7 @@ export default {
           id: 1,
           who: "GrAIdon",
           text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 2,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 3,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 4,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 5,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 6,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        }                                      
+        }                                   
       ]
     };
   },
