@@ -37,7 +37,7 @@
 
     	# Add CORS headers for API requests
 	header {
-		Access-Control-Allow-Origin "graydonmemoirs-api.jeffpeoples.com"
+		Access-Control-Allow-Origin "https://graydonmemoirs.jeffpeoples.com"
 		Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
 		Access-Control-Allow-Headers "Content-Type, Authorization"
 		Access-Control-Allow-Credentials true

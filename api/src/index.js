@@ -36,13 +36,13 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        "access-control-allow-origin": ["graydonmemoirs.jeffpeoples.com","graydonmemoirs-api.jeffpeoples.com"],
+        "access-control-allow-origin": ["https://graydonmemoirs.jeffpeoples.com","https://graydonmemoirs-api.jeffpeoples.com"],
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
         "connect-src": [
           "'self'", // Allow connections to the same origin
-          "graydonmemoirs.jeffpeoples.com",
-          "graydonmemoirs-api.jeffpeoples.com"
+          "https://graydonmemoirs.jeffpeoples.com",
+          "https://graydonmemoirs-api.jeffpeoples.com"
         ],        
       },
     },
