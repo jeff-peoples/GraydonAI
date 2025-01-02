@@ -36,11 +36,12 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
+        "access-control-allow-origin": ["app-production-de6f.up.railway.app"],
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
         "connect-src": [
           "'self'", // Allow connections to the same origin
-          "https://api-production-cd51.up.railway.app", // Allow API server connections
+          "https://app-production-de6f.up.railway.app"
         ],        
       },
     },
