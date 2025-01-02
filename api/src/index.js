@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 app.use(nocache());
 
 // Configure CORS to allow only your SPA's origin
-const allowedOrigins = ['https://graydonmemoirs.jeffpeoples.com'];
+const allowedOrigins = ['https://graydonmemoirs.jeffpeoples.com', 'http://localhost:4040'];
 
 app.use(cors({
   origin: function (origin, callback) {

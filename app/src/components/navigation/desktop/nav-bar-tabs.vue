@@ -3,7 +3,7 @@
     <!-- <NavBarTab path="/profile" label="Profile" />
     <NavBarTab path="/public" label="Public" /> -->
     <template v-if="isAuthenticated">
-      <NavBarTab path="/chat" label="Chat" />
+      <!-- <NavBarTab path="/chat" label="Chat" /> -->
       <!-- <NavBarTab path="/admin" label="Admin" /> -->
     </template>
   </div>

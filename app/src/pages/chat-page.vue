@@ -1,6 +1,6 @@
 <template>
   <PageLayout>
-    <div class="content-layout pb-0">
+    <div class="content-layout pb-0 pt-2">
       <!-- <h1 id="page-title" class="content__title">
         Chat
       </h1> -->
@@ -27,8 +27,8 @@
           
           <div class="d-flex chatbox mt-auto">
             <div class="d-flex flex-column input w-100"> 
-              <input type="text" placeholder="Type a message..." v-model="prompt"/>
-              <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled">Send</button>
+              <textarea placeholder="Type a message..." v-model="prompt"/>
+              <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled" :class="{ senddisabled: 'processing'}">{{ buttontext }}</button>
             </div>
          </div>
 
@@ -54,6 +54,7 @@ export default {
       senddisabled: false,
       message: "",
       prompt: "",
+      buttontext: "Send",
       messages: [
         {
           id: 1,
@@ -84,33 +85,37 @@ export default {
           id: 6,
           who: "GrAIdon",
           text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        },
-        {
-          id: 7,
-          who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
-        }
+        }                                      
       ]
     };
   },
   async mounted() {
   },
   methods: {
+    scrollToLatestMessage() {
+      this.$nextTick(() => {
+        const messagesPane = this.$refs.messagespane;
+        const newMessage = this.$refs['message' + (this.messages.length - 1)][0];
+        messagesPane.scrollTop = (newMessage.offsetTop - 100);
+      });
+    },
     async sendMessage() {
 
       this.senddisabled = true
+      this.buttontext = "Thinking..."
+
+      this.messages.push({
+        id: this.messages.length + 1,
+        who: "You",
+        text: this.prompt,
+      });
+
+      this.scrollToLatestMessage();      
 
       const accessToken = await this.$auth0.getAccessTokenSilently();
       const { data, error } = await getChatCompletion(this.prompt, accessToken);
 
-      console.log("data:", data)
-
       if (data) {
-        this.messages.push({
-          id: this.messages.length + 1,
-          who: "You",
-          text: this.prompt,
-        });
 
         this.message = JSON.stringify(data, null, 2);
           this.messages.push({
@@ -119,13 +124,10 @@ export default {
           text: data.text,
         });
 
-        this.$nextTick(() => {
-          const messagesPane = this.$refs.messagespane;
-          const newMessage = this.$refs['message' + (this.messages.length - 1)][0];
-          messagesPane.scrollTop = (newMessage.offsetTop - 100);
-        });
+        this.scrollToLatestMessage();
 
         this.senddisabled = false
+        this.buttontext = "Send"
         this.prompt = "";
       } else {
         console.log("Nothing in data")
@@ -134,6 +136,7 @@ export default {
       if (error) {
         alert(JSON.stringify(error, null, 2));
         this.senddisabled = false
+        this.buttontext = "Send"
         return
       }
       

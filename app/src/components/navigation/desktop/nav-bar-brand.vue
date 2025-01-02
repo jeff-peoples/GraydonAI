@@ -1,6 +1,7 @@
 <template>
   <div class="nav-bar__brand">
-    <router-link to="/">Ask Graydon
+    <router-link to="/">
+      Ask Graydon
       <!-- <img
         class="nav-bar__logo"
         src="https://cdn.auth0.com/blog/hub/code-samples/hello-world/auth0-logo.svg"
