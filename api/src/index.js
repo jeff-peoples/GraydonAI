@@ -36,12 +36,13 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        "access-control-allow-origin": ["app-production-de6f.up.railway.app"],
+        "access-control-allow-origin": ["graydonmemoirs.jeffpeoples.com","graydonmemoirs-api.jeffpeoples.com"],
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
         "connect-src": [
           "'self'", // Allow connections to the same origin
-          "https://app-production-de6f.up.railway.app"
+          "graydonmemoirs.jeffpeoples.com",
+          "graydonmemoirs-api.jeffpeoples.com"
         ],        
       },
     },
