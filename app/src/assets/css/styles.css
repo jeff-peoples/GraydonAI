@@ -1,0 +1,57 @@
+@import "theme.css";
+@import "general.css";
+@import "components/index.css";
+
+.chatwindow {
+    display: flex;
+    flex-direction: column;
+    background-color: #202224;
+    height: calc(100vh - 178px);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.messages {
+    padding: 0 20px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    .message {
+        color: #acacac;
+        margin: 30px 10px;
+        .who {
+            font-weight: bold;
+            color: #d5d5d5;
+            font-size: 13px;
+        }
+    }
+}
+
+.chatbox {
+    background-color: green;
+    margin-bottom: 0px;
+    padding: 20px; 
+    background-color: #2a2c31;
+    border-radius: 10px;
+    input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2a2c31;
+        color: #fff;
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        background-color: rgb(0, 92, 118);
+        color: #fff;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(0, 117, 149);
+        }
+    }
+}

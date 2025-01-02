@@ -1,0 +1,143 @@
+<template>
+  <PageLayout>
+    <div class="content-layout pb-0">
+      <!-- <h1 id="page-title" class="content__title">
+        Chat
+      </h1> -->
+      <div class="content__body">
+        <!-- <p id="page-description">
+          <span>
+            This page retrieves a <strong>protected message</strong> from an
+            external API.
+            </span>
+          <span>
+            <strong>Only authenticated users can access this page.</strong>
+          </span>
+        </p> -->
+        <!-- <CodeSnippet title="Protected Message" :code="message" /> -->
+        <div class="chatwindow">
+
+          <div class="messages" ref="messagespane">
+            <div class="message" v-for="message in messages" :key="message.id" :ref="'message' + message.id">
+              <div class="who">{{ message.who }}</div>
+              {{ message.text }}
+            </div>
+          </div>
+
+          
+          <div class="d-flex chatbox mt-auto">
+            <div class="d-flex flex-column input w-100"> 
+              <input type="text" placeholder="Type a message..." v-model="prompt"/>
+              <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled">Send</button>
+            </div>
+         </div>
+
+        </div>
+
+      </div>
+    </div>
+  </PageLayout>
+</template>
+
+<script>
+import CodeSnippet from "@/components/code-snippet.vue";
+import PageLayout from "@/components/page-layout.vue";
+import { getChatCompletion } from "@/services/message.service";
+
+export default {
+  components: {
+    PageLayout,
+    CodeSnippet,
+  },
+  data() {
+    return {
+      senddisabled: false,
+      message: "",
+      prompt: "",
+      messages: [
+        {
+          id: 1,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 2,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 3,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 4,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 5,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 6,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        },
+        {
+          id: 7,
+          who: "GrAIdon",
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote. For example, 'What was Graydon's proudest moment in life?'",
+        }
+      ]
+    };
+  },
+  async mounted() {
+  },
+  methods: {
+    async sendMessage() {
+
+      this.senddisabled = true
+
+      const accessToken = await this.$auth0.getAccessTokenSilently();
+      const { data, error } = await getChatCompletion(this.prompt, accessToken);
+
+      console.log("data:", data)
+
+      if (data) {
+        this.messages.push({
+          id: this.messages.length + 1,
+          who: "You",
+          text: this.prompt,
+        });
+
+        this.message = JSON.stringify(data, null, 2);
+          this.messages.push({
+          id: this.messages.length + 1,
+          who: "GrAIdon",
+          text: data.text,
+        });
+
+        this.$nextTick(() => {
+          const messagesPane = this.$refs.messagespane;
+          const newMessage = this.$refs['message' + (this.messages.length - 1)][0];
+          messagesPane.scrollTop = (newMessage.offsetTop - 100);
+        });
+
+        this.senddisabled = false
+        this.prompt = "";
+      } else {
+        console.log("Nothing in data")
+      }
+
+      if (error) {
+        alert(JSON.stringify(error, null, 2));
+        this.senddisabled = false
+        return
+      }
+      
+    },
+  },
+};
+</script>
