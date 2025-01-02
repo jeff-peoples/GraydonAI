@@ -38,7 +38,10 @@ app.use(
       directives: {
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
-        "connectSrc": ["'self'", 'https://app-production-de6f.up.railway.app'],
+        "connect-src": [
+          "'self'", // Allow connections to the same origin
+          "https://api-production-cd51.up.railway.app", // Allow API server connections
+        ],        
       },
     },
     frameguard: {
