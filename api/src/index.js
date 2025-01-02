@@ -36,13 +36,10 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: false,
       directives: {
-        "access-control-allow-origin": ["https://graydonmemoirs.jeffpeoples.com","https://graydonmemoirs-api.jeffpeoples.com"],
         "default-src": ["'none'"],
         "frame-ancestors": ["'none'"],
         "connect-src": [
           "'self'", // Allow connections to the same origin
-          "https://graydonmemoirs.jeffpeoples.com",
-          "https://graydonmemoirs-api.jeffpeoples.com"
         ],        
       },
     },
@@ -58,14 +55,21 @@ app.use((req, res, next) => {
 });
 app.use(nocache());
 
-app.use(
-  cors({
-    origin: CLIENT_ORIGIN_URL,
-    methods: ["GET"],
-    allowedHeaders: ["Authorization", "Content-Type"],
-    maxAge: 86400,
-  })
-);
+// Configure CORS to allow only your SPA's origin
+const allowedOrigins = ['https://graydonmemoirs.jeffpeoples.com'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+          callback(null, true);
+      } else {
+          callback(new Error(origin + ' not allowed by CORS on API server'));
+      }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ["Authorization", "Content-Type"],
+  maxAge: 86400,
+}));
 
 app.use("/api", apiRouter);
 apiRouter.use("/messages", messagesRouter);

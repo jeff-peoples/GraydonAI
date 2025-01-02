@@ -34,12 +34,4 @@
 
 	# if path doesn't exist, redirect it to 'index.html' for client side routing
 	try_files {path} /index.html
-
-    	# Add CORS headers for API requests
-	header {
-		Access-Control-Allow-Origin "https://graydonmemoirs.jeffpeoples.com"
-		Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
-		Access-Control-Allow-Headers "Content-Type, Authorization"
-		Access-Control-Allow-Credentials true
-	}
 }
