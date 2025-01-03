@@ -139,3 +139,10 @@
         display: none;
     }
 }
+
+.herobuttons button {
+    width: 100%;
+    @include md {
+        width: 50%;
+    }
+}
