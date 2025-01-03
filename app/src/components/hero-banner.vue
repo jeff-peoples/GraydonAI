@@ -5,6 +5,9 @@
     <p>Between 1988 and 2000, Graydon Peoples wrote 300 pages of memoirs remembering his very full life. Explore his history through AI with "GrAIdon", an AI agent trained on the full text of his memoirs and other historical information. </p>
     <p>Ask it questions about his life, growing up, experiences, stories and vacations with his children, his career, boating, grandkids. </p>
     
+    <div class="mobile-nav-bar__buttons">
+      <button class="button__logout" @click="routeToChat()">Chat with GrAIdon</button>
+    </div>
 
     <MobileNavBarButtons class="mobileonly"/>
 
@@ -16,6 +19,16 @@
 import MobileNavBarButtons from "@/components/navigation/mobile/mobile-nav-bar-buttons.vue";
 import NavBarTabs from "@/components/navigation/desktop/nav-bar-tabs.vue";
   export default {
-  components: { MobileNavBarButtons, NavBarTabs },
+    components: { MobileNavBarButtons, NavBarTabs },
+    data() {
+      return {
+        isAuthenticated: this.$auth0.isAuthenticated,
+      };
+    },
+    methods: {
+      routeToChat() {
+        this.$router.push("/chat");
+      },
+    },
 };
 </script>
