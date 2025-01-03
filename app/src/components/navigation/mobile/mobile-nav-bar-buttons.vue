@@ -5,7 +5,7 @@
       <LoginButton />
     </template>
     <template v-if="isAuthenticated">
-      <button class="button__logout p-4" @click="routeToPodcast()">Listen to his AI podcast</button>
+      <!-- <button class="button__logout p-4" @click="routeToPodcast()">Listen to his AI podcast</button> -->
       <LogoutButton />
     </template>
   </div>
