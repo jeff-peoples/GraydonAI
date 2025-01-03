@@ -4,7 +4,6 @@ export const callExternalApi = async (options) => {
   try {
     const response = await axios(options.config);
     const { data } = response;
-    console.log(data)
 
     return {
       data,

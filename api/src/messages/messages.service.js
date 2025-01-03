@@ -21,7 +21,7 @@ const getAdminMessage = () => {
 };
 
 const getChatCompletion = async (req) => {
-  console.log("req.body.prompt: ", req.body.prompt)
+  // console.log("req.body.prompt: ", req.body.prompt)
   // console.log("graydontext", graydontext)
   // return {
   //   text: "This is a chat completion message.",

@@ -106,7 +106,7 @@ export default {
         this.buttontext = "Send"
         this.prompt = "";
       } else {
-        console.log("Nothing in data")
+        console.log("Nothing returned from API server")
       }
 
       if (error) {

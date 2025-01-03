@@ -13,8 +13,6 @@ dotenv.config();
 
 
 if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
-  console.log("port: ", process.env.PORT)
-  console.log("process.env.CLIENT_ORIGIN_URL: ", process.env.CLIENT_ORIGIN_URL)
   throw new Error(
     "Missing required environment variables. Check docs for more info."
   );

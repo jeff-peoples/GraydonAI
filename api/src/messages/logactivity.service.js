@@ -13,7 +13,7 @@ const logActivity = async (data) => {
     try {
         // Connect to the MongoDB cluster
         await mongodbclient.connect();
-        console.log('Connected to MongoDB.');
+        // console.log('Connected to MongoDB.');
 
         // Select the database and collection
         const database = mongodbclient.db(dbName);
