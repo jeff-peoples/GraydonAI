@@ -6,7 +6,7 @@
     <p>Ask it questions about his life, growing up, experiences, stories and vacations with his children, his career, boating, grandkids. </p>
     
     <div class="mobile-nav-bar__buttons">
-      <button class="button__logout" @click="routeToChat()">Chat with GrAIdon</button>
+      <button class="button__logout p-4" @click="routeToChat()">Chat with GrAIdon</button>
     </div>
 
     <MobileNavBarButtons class="mobileonly"/>
