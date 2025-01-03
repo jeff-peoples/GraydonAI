@@ -27,7 +27,7 @@
           
           <div class="d-flex chatbox mt-auto">
             <div class="d-flex flex-column input w-100"> 
-              <textarea placeholder="Type a message..." v-model="prompt"/>
+                <textarea placeholder="Type a message..." v-model="prompt" :disabled="senddisabled" @keyup.enter="sendMessage()"/>
               <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled" :class="{ senddisabled: 'processing'}">{{ buttontext }}</button>
             </div>
          </div>

@@ -6,6 +6,7 @@ const nocache = require("nocache");
 const { messagesRouter } = require("./messages/messages.router");
 const { errorHandler } = require("./middleware/error.middleware");
 const { notFoundHandler } = require("./middleware/not-found.middleware");
+const rateLimit = require("express-rate-limit");
 
 dotenv.config();
 
@@ -20,7 +21,6 @@ if (!(process.env.PORT && process.env.CLIENT_ORIGIN_URL)) {
 }
 
 const PORT = parseInt(process.env.PORT, 10);
-const CLIENT_ORIGIN_URL = process.env.CLIENT_ORIGIN_URL;
 
 const app = express();
 const apiRouter = express.Router();
@@ -70,6 +70,14 @@ app.use(cors({
   allowedHeaders: ["Authorization", "Content-Type"],
   maxAge: 86400,
 }));
+
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  limit: 6, // limit each IP to 6 request per windowMs
+  message: "Too many requests, please try again later.",
+});
+
+app.use(limiter);
 
 app.use("/api", apiRouter);
 apiRouter.use("/messages", messagesRouter);

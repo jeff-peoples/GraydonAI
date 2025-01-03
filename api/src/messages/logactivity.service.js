@@ -27,8 +27,8 @@ const logActivity = async (data) => {
         };
 
         // Insert the chatCompletion object
-        const result = await collection.insertOne(chatCompletion);
-        console.log(`New document inserted with _id: ${result.insertedId}`);
+        await collection.insertOne(chatCompletion);
+        // console.log(`New document inserted with _id: ${result.insertedId}`);
     } catch (error) {
         console.error('Error inserting document:', error);
     } finally {
