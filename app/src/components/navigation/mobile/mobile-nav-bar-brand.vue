@@ -9,7 +9,7 @@
         height="24"
       /> -->
     </router-link>
-    <div class="d-flex nav-bar__tabs podcast text-end" @click="routeToPodcast()">Listen to his AI podcast </div>
+    <div class="d-flex nav-bar__tabs podcast text-end ms-3" @click="routeToPodcast()">Listen to his AI podcast </div>
   </div>
 </template>
 
