@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     routeToPodcast() {
-        window.location.href = "https://notebooklm.google.com/notebook/342adb31-f8bf-4c92-9385-753b96265feb/audio";
+        window.location.href = "https://soundcloud.com/peepz/graydon-peoples-podcast";
       },    
   }
 };
