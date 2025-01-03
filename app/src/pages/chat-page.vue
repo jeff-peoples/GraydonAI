@@ -28,7 +28,7 @@
           
           <div class="d-flex flex-column bottom mt-auto">
             <div class="mt-5 mt-md-4">
-              <div class="d-inline-flex autobuttons align-self-end" @click="autoPrompt('Suggest some topics and questions')">Suggest topics and questions</div>
+              <div class="d-inline-flex autobuttons align-self-end" @click="autoPrompt('Suggest some topics and questions')">Suggest some topics</div>
               <div class="d-inline-flex autobuttons align-self-end" @click="autoPrompt('Choose randomly a fact or experience from Graydon\'s memoirs')">Randomly tell me something</div>
             </div>
             <div class="d-flex chatbox">
