@@ -1,6 +1,6 @@
 <template>
   <PageLayout>
-    <div class="content-layout pb-0 pt-2">
+    <div class="content-layout p-0 pt-md-4 p-md-5 pb-md-0">
       <!-- <h1 id="page-title" class="content__title">
         Chat
       </h1> -->
@@ -55,6 +55,7 @@ export default {
       message: "",
       prompt: "",
       buttontext: "Send",
+      user: this.$auth0.user,  
       messages: [
         {
           id: 1,
@@ -88,7 +89,7 @@ export default {
       this.scrollToLatestMessage();      
 
       const accessToken = await this.$auth0.getAccessTokenSilently();
-      const { data, error } = await getChatCompletion(this.prompt, accessToken);
+      const { data, error } = await getChatCompletion(this.prompt, this.user.email, accessToken);
 
       if (data) {
 

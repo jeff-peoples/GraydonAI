@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .page-layout__content {
     margin-top: 6.4rem;
   }

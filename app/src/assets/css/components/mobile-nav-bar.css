@@ -123,7 +123,7 @@
   background-color: var(--black);
 }
 
-@media only screen and (max-width: 640px) and (hover: none) {
+@media only screen and (max-width: 768px) and (hover: none) {
   .mobile-nav-bar__tab:hover {
     color: var(--white);
   }
@@ -133,7 +133,7 @@
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .mobile-nav-bar__container {
     display: flex;
   }

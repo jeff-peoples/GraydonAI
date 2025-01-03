@@ -8,7 +8,7 @@ export default {
     handleSignUp() {
       this.$auth0.loginWithRedirect({
         appState: {
-          target: "/profile",
+          target: "/chat",
         },
         authorizationParams: {
           prompt: "login",

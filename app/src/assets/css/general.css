@@ -147,7 +147,7 @@ code {
   width: 100%;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   .mobile-scroll-lock {
     overflow: hidden;
   }

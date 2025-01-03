@@ -1,6 +1,6 @@
 const OpenAI = require('openai');
 const { graydontext } = require('./graydontext');
-
+const { logActivity } = require('./logactivity.service');
 
 const getPublicMessage = () => {
   return {
@@ -58,13 +58,19 @@ const getChatCompletion = async (req) => {
       presence_penalty: 0
     });
 
+    logActivity({
+      useremail: req.body.useremail,
+      prompt: req.body.prompt,
+      completion: response.choices[0].message.content
+    });    
+
     return {
       text: response.choices[0].message.content
     }
 
   } catch (error) {
-    console.error('Error fetching chat completion:', error);
-    throw new Error('Failed to fetch chat completion');
+    console.error('Error in the app fetching chat completion:', error);
+    throw new Error('Failed to fetch chat completion in the app');
   }
 };
 

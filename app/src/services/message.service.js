@@ -19,7 +19,7 @@ export const getPublicResource = async () => {
   };
 };
 
-export const getChatCompletion = async (prompt, accessToken) => {
+export const getChatCompletion = async (prompt, useremail, accessToken) => {
   const config = {
     url: `${apiServerUrl}/api/messages/getchatcompletion`,
     method: "POST",
@@ -28,7 +28,8 @@ export const getChatCompletion = async (prompt, accessToken) => {
       Authorization: `Bearer ${accessToken}`,
     },
     data: {
-      prompt: prompt
+      prompt: prompt,
+      useremail: useremail,
     },
   };
 
