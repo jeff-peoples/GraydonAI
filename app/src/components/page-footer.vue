@@ -52,7 +52,7 @@
             height="22.22"
           />
           <PageFooterHyperlink path="https://auth0.com/">
-            Ask Graydon
+            Ask GrAIdon
           </PageFooterHyperlink>
         </div>
       </div>
