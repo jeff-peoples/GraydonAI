@@ -1,9 +1,9 @@
 <template>
   <div class="nav-bar__tabs">
-    <!-- <NavBarTab path="/profile" label="Profile" />
-    <NavBarTab path="/public" label="Public" /> -->
+    <!-- <NavBarTab path="/profile" label="Profile" /> -->
+    <NavBarTab path="/" label="Home" />
     <template v-if="isAuthenticated">
-      <!-- <NavBarTab path="/chat" label="Chat" /> -->
+      <NavBarTab path="/chat" label="Chat" />
       <!-- <NavBarTab path="/admin" label="Admin" /> -->
     </template>
   </div>

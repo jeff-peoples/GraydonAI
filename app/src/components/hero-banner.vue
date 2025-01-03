@@ -9,13 +9,13 @@
     <MobileNavBarButtons class="mobileonly"/>
 
 
-
   </div>
 </template>
 
 <script>
 import MobileNavBarButtons from "@/components/navigation/mobile/mobile-nav-bar-buttons.vue";
+import NavBarTabs from "@/components/navigation/desktop/nav-bar-tabs.vue";
   export default {
-  components: { MobileNavBarButtons }
+  components: { MobileNavBarButtons, NavBarTabs },
 };
 </script>
