@@ -13,14 +13,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomePage,
-    beforeEnter: (to, from, next) => {
-      if (authGuard()) {
-        next({ name: "chat" });
-      } else {
-        next();
-      }
-    },
+    component: HomePage
   },
   {
     path: "/profile",
