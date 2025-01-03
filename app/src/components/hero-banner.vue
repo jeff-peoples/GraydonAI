@@ -3,6 +3,8 @@
 
     <div class="mobile-nav-bar__buttons herobuttons pt-4 pt-md-1" v-if="isAuthenticated">
       <button class="button__logout p-4" @click="routeToChat()" >Chat with GrAIdon</button>
+      <button class="button__logout p-4" @click="routeToPodcast()">Listen to his AI podcast</button>
+      
     </div>
 
     <div class="mobile-nav-bar__buttons herobuttons d-flex d-md-none" v-if="!isAuthenticated">
@@ -15,9 +17,6 @@
     <p>Between 1988 and 2000, Graydon Peoples wrote 300 pages of memoirs remembering his very full life. Explore his history through AI with "GrAIdon", an AI agent trained on the full text of his memoirs and other historical information. </p>
     <p>Ask it questions about his life, growing up, experiences, stories and vacations with his children, his career, boating, grandkids. </p>
   
-
-
-
   </div>
 </template>
 
@@ -37,6 +36,9 @@ export default {
     methods: {
       routeToChat() {
         this.$router.push("/chat");
+      },
+      routeToPodcast() {
+        window.location.href = "https://notebooklm.google.com/notebook/342adb31-f8bf-4c92-9385-753b96265feb/audio";
       },
     },
 };

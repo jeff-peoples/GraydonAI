@@ -5,6 +5,7 @@
       <LoginButton />
     </template>
     <template v-if="isAuthenticated">
+      <button class="button__logout p-4" @click="routeToPodcast()">Listen to his AI podcast</button>
       <LogoutButton />
     </template>
   </div>
@@ -22,5 +23,10 @@ export default {
       isAuthenticated: this.$auth0.isAuthenticated,
     };
   },
+  methods: {
+    routeToPodcast() {
+        window.location.href = "https://notebooklm.google.com/notebook/342adb31-f8bf-4c92-9385-753b96265feb/audio";
+      },    
+  }
 };
 </script>
