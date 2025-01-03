@@ -22,15 +22,22 @@
               <div class="who">{{ message.who }}</div>
               {{ message.text }}
             </div>
+            <Spinner invertedstate class="m-auto" v-if="senddisabled"/>
           </div>
 
           
-          <div class="d-flex chatbox mt-auto">
-            <div class="d-flex flex-column input w-100"> 
-                <textarea placeholder="Type a message..." v-model="prompt" :disabled="senddisabled" @keyup.enter="sendMessage()"/>
-              <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled" :class="{ senddisabled: 'processing'}">{{ buttontext }}</button>
+          <div class="d-flex flex-column bottom mt-auto">
+            <div class="mt-5 mt-md-4">
+              <div class="d-inline-flex autobuttons align-self-end" @click="autoPrompt('Suggest some topics and questions')">Suggest topics and questions</div>
+              <div class="d-inline-flex autobuttons align-self-end" @click="autoPrompt('Choose randomly a fact or experience from Graydon\'s memoirs')">Randomly tell me something</div>
             </div>
-         </div>
+            <div class="d-flex chatbox">
+              <div class="d-flex flex-column input w-100"> 
+                  <textarea placeholder="Type a message..." v-model="prompt" :disabled="senddisabled" @keyup.enter="sendMessage()"/>
+                <button class="align-self-end" @click="sendMessage()" :disabled="senddisabled" :class="{ senddisabled: 'processing'}">{{ buttontext }}</button>
+              </div>
+          </div>
+          </div>
 
         </div>
 
@@ -43,11 +50,13 @@
 import CodeSnippet from "@/components/code-snippet.vue";
 import PageLayout from "@/components/page-layout.vue";
 import { getChatCompletion } from "@/services/message.service";
+import Spinner from '@/components/Spinner/Spinner.vue';
 
 export default {
   components: {
     PageLayout,
     CodeSnippet,
+    Spinner
   },
   data() {
     return {
@@ -73,6 +82,10 @@ export default {
   async mounted() {
   },
   methods: {
+    autoPrompt(prompt) {
+      this.prompt = prompt;
+      this.sendMessage();
+    },
     scrollToLatestMessage() {
       this.$nextTick(() => {
         const messagesPane = this.$refs.messagespane;
