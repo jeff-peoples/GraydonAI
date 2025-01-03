@@ -51,8 +51,8 @@ const getChatCompletion = async (req) => {
       response_format: {
         "type": "text"
       },
-      temperature: 0.25,
-      max_completion_tokens: 7512,
+      temperature: 0.5,
+      max_completion_tokens: 15024,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0

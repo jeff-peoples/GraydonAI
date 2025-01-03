@@ -60,8 +60,13 @@ export default {
         {
           id: 1,
           who: "GrAIdon",
-          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote - His life, growing up, stories and vacations with his children, his career, boating, grandkids. For example, 'Tell me a memorable experience from Graydon's family vacations.' You can also type 'Suggest some topics and questions for me to ask you about.'",
-        }                                   
+          text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote - His life, growing up, stories and vacations with his children, his career, boating, grandkids. For example, 'What was your experience like at Iowa State University?'",
+        },
+        {
+          id: 2,
+          who: "GrAIdon",
+          text: "You can also type 'Suggest some topics and questions for me to ask you about.'",
+        },                                       
       ]
     };
   },
