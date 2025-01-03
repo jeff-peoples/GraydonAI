@@ -1,7 +1,7 @@
 <template>
   <div class="herotext">
-    <div class="mobile-nav-bar__buttons">
-      <button class="button__logout p-4 mt-0" @click="routeToChat()" v-if="isAuthenticated">Chat with GrAIdon</button>
+    <div class="mobile-nav-bar__buttons pt-0" v-if="isAuthenticated">
+      <button class="button__logout p-4" @click="routeToChat()" >Chat with GrAIdon</button>
     </div>
         
     <p>"While visiting with Diane, this summer of 1988, she asked me to write down a kind of biography for all six of you, brothers and sisters. As I started to recall some of the events of years past and sorted through old photographs this kind of grew and grew and became more interesting. So this is to all of you but dedicated to Diane for giving me that extra push to get started." – Graydon Peoples
