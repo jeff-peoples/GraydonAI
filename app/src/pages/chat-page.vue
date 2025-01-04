@@ -94,13 +94,7 @@ export default {
           who: "GrAIdon",
           text: "Hello, I'm GrAIdon. I'm an AI trained on the full text of Graydon Peoples memoirs. Ask me anything about the 300 pages he wrote - His life, growing up, stories and vacations with his children, his career, boating, grandkids. For example, 'What was your experience like at Iowa State University?'",
           creativemode: false
-        },
-        {
-          id: 2,
-          who: "GrAIdon",
-          text: "You can also type 'Suggest some topics and questions for me to ask you about.'",
-          creativemode: false
-        },                                       
+        }                                     
       ]
     };
   },
