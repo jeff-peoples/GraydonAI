@@ -35,6 +35,14 @@ const getChatCompletion = async (req) => {
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     });
+
+    if (req.body.creativemode === true) {
+      creativemodeprompt = "creativemode is true"
+    } else {
+      creativemodeprompt = "creativemode is false"
+    }
+
+    console.log("creativemodeprompt: ", creativemodeprompt)
     
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -42,6 +50,10 @@ const getChatCompletion = async (req) => {
         {
           "role": "system",
           "content": graydontext
+        },
+        {
+          "role": "system",
+          "content": creativemodeprompt
         },
         {
           "role": "user",
@@ -61,11 +73,13 @@ const getChatCompletion = async (req) => {
     logActivity({
       useremail: req.body.useremail,
       prompt: req.body.prompt,
-      completion: response.choices[0].message.content
+      completion: response.choices[0].message.content,
+      creativemode: req.body.creativemode
     });    
 
     return {
-      text: response.choices[0].message.content
+      text: response.choices[0].message.content,
+      creativemode: req.body.creativemode
     }
 
   } catch (error) {
